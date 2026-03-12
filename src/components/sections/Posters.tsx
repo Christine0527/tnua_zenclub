@@ -116,11 +116,15 @@ const PosterPolaroid = styled.div<{ rotate?: string }>`
     cursor: zoom-in;
     transform: rotate(${props => props.rotate || "0deg"});
     border-radius: 4px;
-    width: 220px; /* 再次縮小電腦版海報寬度 */
+    width: 320px; /* 再次縮小電腦版海報寬度 */
 
+    ${Media.Tablet(`
+        padding: 8px 8px 32px 8px;
+        width: 280px; /* 再次縮小手機版海報寬度 */
+    `)}
     ${Media.Phone(`
         padding: 8px 8px 32px 8px;
-        width: 160px; /* 再次縮小手機版海報寬度 */
+        width: 230px; /* 再次縮小手機版海報寬度 */
     `)}
     
     img {
