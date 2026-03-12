@@ -170,6 +170,7 @@ export const Posters = ({ onOpenLightbox }: PostersProps) => {
     const posterData = Array.from({ length: 20 }, (_, i) => ({
         id: i + 1,
         url: `/${i + 1}.jpg`,
+        title: `社課海報 ${i + 1}`,
         rotate: `${(Math.random() * 6 - 3).toFixed(1)}deg` // 隨機旋轉 -3 到 3 度
     }));
 
