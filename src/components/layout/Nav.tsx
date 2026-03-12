@@ -121,7 +121,7 @@ export const Nav = () => {
             </NavLinks>
 
             <NavActions>
-                <NavIcon href="https://www.instagram.com/tnua_zen_club" target="_blank">
+                <NavIcon href="https://www.instagram.com/tnua_zenclub?igsh=Y3J2bHZjdGp4aTl0&utm_source=qr" target="_blank">
                     <Instagram size={20} />
                 </NavIcon>
                 <JoinBtn href="#join">手刀報名</JoinBtn>

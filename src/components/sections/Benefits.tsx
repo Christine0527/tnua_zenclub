@@ -315,17 +315,17 @@ export const Benefits = ({ onOpenLightbox }: BenefitsProps) => {
 
                 <Reveal>
                     <PhotoGrid>
-                        <PhotoCard rotate="-3deg" onClick={() => onOpenLightbox("https://images.unsplash.com/photo-1517141604035-4d075ad200f4?auto=format&fit=crop&q=80&w=400", "社課小食光")}>
-                            <img src="https://images.unsplash.com/photo-1517141604035-4d075ad200f4?auto=format&fit=crop&q=80&w=400" alt="照片1" />
+                        <PhotoCard rotate="-3deg" onClick={() => onOpenLightbox("/333078_0.jpg", "社課活動")}>
+                            <img src="/333078_0.jpg" alt="照片1" />
                         </PhotoCard>
-                        <PhotoCard rotate="2deg" translateY="16px" onClick={() => onOpenLightbox("https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=400", "期末大會")}>
-                            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=400" alt="照片2" />
+                        <PhotoCard rotate="2deg" translateY="16px" onClick={() => onOpenLightbox("/333077_0.jpg", "靜心時光")}>
+                            <img src="/333077_0.jpg" alt="照片2" />
                         </PhotoCard>
-                        <PhotoCard rotate="-2deg" onClick={() => onOpenLightbox("https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=400", "靜心時光")}>
-                            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=400" alt="照片3" />
+                        <PhotoCard rotate="-2deg" onClick={() => onOpenLightbox("/333079_0.jpg", "溫馨合照")}>
+                            <img src="/333079_0.jpg" alt="照片3" />
                         </PhotoCard>
-                        <PhotoCard rotate="4deg" translateY="8px" onClick={() => onOpenLightbox("https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=400", "戶外靜坐")}>
-                            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=400" alt="照片4" />
+                        <PhotoCard rotate="4deg" translateY="8px" onClick={() => onOpenLightbox("/333080_0.jpg", "快樂回憶")}>
+                            <img src="/333080_0.jpg" alt="照片4" />
                         </PhotoCard>
                     </PhotoGrid>
                 </Reveal>

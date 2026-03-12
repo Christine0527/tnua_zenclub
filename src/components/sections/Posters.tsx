@@ -141,8 +141,11 @@ export const Posters = ({ onOpenLightbox }: PostersProps) => {
 
     const carouselSettings = {
         dots: false,
-        infinite: false,
-        speed: 600,
+        infinite: true,
+        speed: 1000,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        pauseOnHover: true,
         slidesToShow: 3.5,
         slidesToScroll: 1,
         arrows: false,
@@ -164,13 +167,19 @@ export const Posters = ({ onOpenLightbox }: PostersProps) => {
         ]
     };
 
+    const posterData = Array.from({ length: 20 }, (_, i) => ({
+        id: i + 1,
+        url: `/${i + 1}.jpg`,
+        rotate: `${(Math.random() * 6 - 3).toFixed(1)}deg` // 隨機旋轉 -3 到 3 度
+    }));
+
     return (
         <SectionContainer id="posters" bgColor="#F4F1E8">
             <PosterContent>
                 <Reveal>
                     <CarouselHeader>
                         <CarouselHeaderInfo>
-                            <SectionTitleBase>歷屆活動海報 🎨</SectionTitleBase>
+                            <SectionTitleBase>歷屆社課海報 🎨</SectionTitleBase>
                             <PosterSectionDesc>可用滑鼠左右拖曳，或點擊圖片直接放大欣賞。</PosterSectionDesc>
                         </CarouselHeaderInfo>
                         <CarouselArrows>
@@ -187,30 +196,16 @@ export const Posters = ({ onOpenLightbox }: PostersProps) => {
                 <Reveal>
                     <PosterSliderWrapper>
                         <Slider ref={sliderRef} {...carouselSettings}>
-                            <PosterSlide>
-                                <PosterPolaroid rotate="-3deg" onClick={() => onOpenLightbox("https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600", "期初大會")}>
-                                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600" alt="海報1" />
-                                    <p>期初大會</p>
-                                </PosterPolaroid>
-                            </PosterSlide>
-                            <PosterSlide>
-                                <PosterPolaroid rotate="2deg" onClick={() => onOpenLightbox("https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=600", "靜心工作坊")}>
-                                    <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=600" alt="海報2" />
-                                    <p>靜心工作坊</p>
-                                </PosterPolaroid>
-                            </PosterSlide>
-                            <PosterSlide>
-                                <PosterPolaroid rotate="-1.5deg" onClick={() => onOpenLightbox("https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&q=80&w=600", "戶外禪定")}>
-                                    <img src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?auto=format&fit=crop&q=80&w=600" alt="海報3" />
-                                    <p>戶外禪定</p>
-                                </PosterPolaroid>
-                            </PosterSlide>
-                            <PosterSlide>
-                                <PosterPolaroid rotate="4deg" onClick={() => onOpenLightbox("https://images.unsplash.com/photo-1604871000636-074fa5117945?auto=format&fit=crop&q=80&w=600", "期中茶會")}>
-                                    <img src="https://images.unsplash.com/photo-1604871000636-074fa5117945?auto=format&fit=crop&q=80&w=600" alt="海報4" />
-                                    <p>期中茶會</p>
-                                </PosterPolaroid>
-                            </PosterSlide>
+                            {posterData.map((poster) => (
+                                <PosterSlide key={poster.id}>
+                                    <PosterPolaroid 
+                                        rotate={poster.rotate} 
+                                        onClick={() => onOpenLightbox(poster.url, poster.title)}
+                                    >
+                                        <img src={poster.url} alt={poster.title} />
+                                    </PosterPolaroid>
+                                </PosterSlide>
+                            ))}
                         </Slider>
                     </PosterSliderWrapper>
                 </Reveal>
