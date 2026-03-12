@@ -1,7 +1,6 @@
 {
   "name": "tnua_zenclub",
   "version": "1.0.0",
-  "homepage": "https://Christine0527.github.io/tnua_zenclub/",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,6 +10,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
+  "homepage": "https://Christine0527.github.io/tnua_zenclub/",
   "keywords": [],
   "author": "",
   "license": "ISC",

@@ -89,37 +89,57 @@ const ArrowBtn = styled.button`
 `;
 
 const PosterSliderWrapper = styled.div`
-    margin: 0 -20px;
+    margin: 0 -10px;
+    
+    .slick-list {
+        overflow: visible;
+    }
 `;
 
 const PosterSlide = styled.div`
-    padding: 30px 20px;
+    padding: 30px 10px; /* 左右各 10px，相鄰即為 20px */
     box-sizing: border-box;
+    width: 320px; /* 電腦版海報寬度 */
+
+    ${Media.Phone(`
+        padding: 10px 10px;
+        width: 240px; /* 手機版海報寬度 */
+    `)}
 `;
 
 const PosterPolaroid = styled.div<{ rotate?: string }>`
     background: white;
-    padding: 16px 16px 48px 16px;
+    padding: 12px 12px 36px 12px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     user-select: none;
     cursor: zoom-in;
     transform: rotate(${props => props.rotate || "0deg"});
     border-radius: 4px;
+    width: 220px; /* 再次縮小電腦版海報寬度 */
+
+    ${Media.Phone(`
+        padding: 8px 8px 32px 8px;
+        width: 160px; /* 再次縮小手機版海報寬度 */
+    `)}
     
     img {
         width: 100%;
         aspect-ratio: 3/4;
         object-fit: cover;
         border-radius: 2px;
-        margin-bottom: 20px;
+        margin-bottom: 12px;
         border: 1px solid rgba(0, 0, 0, 0.03);
+
+        ${Media.Phone(`
+            margin-bottom: 12px;
+        `)}
     }
     
     p {
         text-align: center;
         font-weight: 700;
-        font-size: 14px;
+        font-size: 13px;
         color: ${Colors.ZenDarkGreen};
         letter-spacing: 0.05em;
         margin: 0;
@@ -146,30 +166,17 @@ export const Posters = ({ onOpenLightbox }: PostersProps) => {
         autoplay: true,
         autoplaySpeed: 2000,
         pauseOnHover: true,
-        slidesToShow: 3.5,
+        slidesToShow: 1,
         slidesToScroll: 1,
+        variableWidth: true,
         arrows: false,
         draggable: true,
         swipeToSlide: true,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2.2,
-                }
-            },
-            {
-                breakpoint: 640,
-                settings: {
-                    slidesToShow: 1.2,
-                }
-            }
-        ]
     };
 
     const posterData = Array.from({ length: 20 }, (_, i) => ({
         id: i + 1,
-        url: `/${i + 1}.jpg`,
+        url: `${(import.meta as any).env.BASE_URL}${i + 1}.jpg`,
         title: `社課海報 ${i + 1}`,
         rotate: `${(Math.random() * 6 - 3).toFixed(1)}deg` // 隨機旋轉 -3 到 3 度
     }));
