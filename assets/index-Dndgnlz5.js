@@ -583,11 +583,11 @@ Error generating stack: `+l.message+`
 `,Mb=nt.div`
     padding: 30px 10px; /* 左右各 10px，相鄰即為 20px */
     box-sizing: border-box;
-    width: 320px; /* 電腦版海報寬度 */
+    width: 240px !important; /* 電腦版：海報 220px + 左右 padding 20px */
 
     ${Gt.Phone(`
         padding: 10px 10px;
-        width: 240px; /* 手機版海報寬度 */
+        width: 180px !important; /* 手機版：海報 160px + 左右 padding 20px */
     `)}
 `,wb=nt.div`
     background: white;
@@ -598,15 +598,13 @@ Error generating stack: `+l.message+`
     cursor: zoom-in;
     transform: rotate(${u=>u.rotate||"0deg"});
     border-radius: 4px;
-    width: 320px; /* 再次縮小電腦版海報寬度 */
+    width: 100% !important; /* 填滿 PosterSlide 的寬度 */
 
     ${Gt.Tablet(`
         padding: 8px 8px 32px 8px;
-        width: 280px; /* 再次縮小手機版海報寬度 */
     `)}
     ${Gt.Phone(`
         padding: 8px 8px 32px 8px;
-        width: 230px; /* 再次縮小手機版海報寬度 */
     `)}
     
     img {
